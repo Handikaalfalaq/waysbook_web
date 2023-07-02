@@ -1,0 +1,781 @@
+/* ----------------------------------------detail book---------------------------------------- */
+.containerDetailBook{
+    position: relative;
+}
+
+
+.detailBook {
+    display: flex;
+    margin: 48px 150px;
+}
+
+.imageDetailBook {
+    width: 400px;
+    height: 577px;
+    background-size: cover;
+}
+
+.informationDetailBook{
+    margin-left: 46px;
+    width: 600px;
+    height: 577px;
+}
+
+.titleDetailBook{
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.authorDetailBook{
+    font-size: 24px;
+    color: #929292;
+}
+
+.publisherDetailBookTitle{
+    font-family: arial;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.publisherDetailBook{
+    font-size: 24px;
+    color: #929292;
+}
+
+.pageDetailBookTitle{
+    font-family: arial;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.pageDetailBook{
+    font-size: 18px;
+    color: #929292;
+}
+
+.isbnDetailBookTitle{
+    font-family: arial;
+    font-size: 24px;
+    color: #D60000;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.isbnDetailBook{
+    font-size: 18px;
+    color: #929292;
+    
+}
+.priceDetailBookTitle{
+    font-family: arial;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.priceDetailBook{
+    font-size: 18px;
+    color: #44B200;
+    font-weight: bold;
+}
+
+.description{
+    display: flex;
+    margin: 48px 150px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px;
+}
+
+.aboutDetailBook{
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.paragrafDetailBook{
+    text-align: justify;
+    font-size: 18px;
+}
+
+.addCartDetailBook{
+    width:150px; 
+    height:50px;
+    right: 150px;
+    bottom:10px; 
+    border:0px;
+    background-color:#393939;
+    color: white;
+    display:flex; 
+    justify-content:center; 
+    text-align: center;
+    align-items:center; 
+    margin-bottom:20px;
+    position: absolute;
+    border-radius: 10px;
+}
+
+.addCart{
+    font-size:18px;
+    font-weight:500;
+}
+
+/* ----------------------------------------home---------------------------------------- */
+.formAddBook{
+    width:1204px;
+    height:50px;
+} 
+
+
+/* ----------------------------------------home---------------------------------------- */
+.containerHome {
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 60px;
+}
+
+.titleHome {
+    margin: auto;
+    font-size: 33px;
+    font-weight: 500;
+    width: 590px;
+    text-align: center;;
+}
+
+.containerBookTop {
+    display: flex;
+    justify-content: space-around;
+    height: 435px;
+}
+
+.bookTop {
+    display: flex;
+    margin-top: 90px;
+    background-color: white;
+    width: auto;
+    height: auto;
+    position: relative;
+}
+
+.imageBook {
+    width: 236px;
+    height: 345px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.imageBestSeller{
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    z-index: 10;
+    right: -30px;
+    top: -30px;
+}
+
+.textBook {
+    margin: auto;
+    width: 268px;
+    height: auto;
+    padding: 9px 25px 16px;
+}
+
+.title{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    height: 105px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.author{
+    margin: 15px 0px;
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #929292;
+}
+
+.closing{
+    font-size: 14px;
+    font-family: 'Times New Roman', Times, serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price{
+    margin: 23px 0px 14px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #44B200;
+}
+
+.buttonCart{
+    width: 220px;
+    height: 39px;
+    background-color: #393939;
+    color: white;
+    font-weight: bold;
+}
+
+/* ---------------------list all book--------------------- */
+.boxBook{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+}
+
+.controlLisBook{
+    margin: 20px 0px
+}
+
+.boxDataBook {
+    display: flex;
+}
+
+.imageListAllBook{
+    height: 240px;
+    width: 175px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.informasiListAllBook{
+    height: auto;
+    width: 200px;
+    margin-left: 20px;
+}
+
+.titleAllListAllBook{
+    font-size: 18px;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.authorAllListAllBook{
+    font-size: 14px;
+    margin: 5px 0px;
+    color: #929292;
+}
+
+.priceAllListAllBook{
+    font-size: 14px;
+    color: #44B200;
+}
+
+.priceAllListAllBookLine{
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #929292;
+    text-decoration: line-through;
+}
+
+.descriptionAllListAllBook{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 15px 0px;
+}
+
+.soldAllListAllBook{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.boxEventAllListAllBook{
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-around;
+    width: 175px; 
+}
+
+.updateAllListAllBook, .deleteAllListAllBook{
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 30px;
+    color: white;
+    background-color: grey;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+
+
+/* ---------------------list book--------------------- */
+.textTitleListBook {
+    font-size: 36px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: 50px 100px 0px;
+}
+
+.containerListBook {
+    margin: 40px 100px 0px;
+    display: flex;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+}
+
+.listBook {
+    width: 200px;
+    height: 425px;
+}
+
+.imageListBook {
+    Width:200px;
+    Height: 270px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.titleListBook{
+    margin: 10px 0px 10px;
+    font-size: 22px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 70px;
+    cursor: pointer;
+}
+
+.authorListBook{
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #929292;
+    height: 40px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.priceListBook{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #44B200;
+    margin-top: 10px;
+}
+
+.priceListBookLine{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #929292;
+    margin-top: 10px;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+
+/* ----------------------------------------personalInfo---------------------------------------- */
+.containerPersonalInfo{
+    margin-top: 90px;
+    width: 1000px;
+}
+
+.personalInfoTitle{
+    font-size: 36px;
+    font-weight: bold;
+    margin-Bottom:40px;
+}
+
+.boxInformasiPersonalInfo{
+    display: flex;
+    flex-direction: column;
+}
+
+.boxPersonalInfo{
+    width: 1000px;
+    height: 334px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFD9D9;
+    border-radius: 20px;
+    padding: 0px 100px;
+}
+
+.iconProfileFullName{
+    height: 35px;
+    width: 35px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.iconProfileEmail{
+    height: 25px;
+    width: 35px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.iconProfileGender{
+    /* height: 35px; */
+    width: 35px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.iconProfilePhone{
+    height: 35px;
+    width: 35px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.iconProfileAddress{
+    height: 35px;
+    width: 35px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.dataInformation{
+    margin-left: 10px;
+}
+
+.titleInformationPersonal{
+    font-size: 14px;
+}
+
+.titlePersonalInfo{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    color: #8A8C90;
+}
+
+.boxPersonalInformation{
+    display: flex;
+    margin-top: 20px;
+}
+
+.fotoPersonalInfo{
+    background-size:cover;
+    height:205px;
+    width:230px;
+    background-position: center center;
+    border-radius: 10px;
+}
+
+.editProfile {
+    height: 50px;
+    width: 230px;
+    color: white;
+    font-size: 18px;
+    background-color: #D60000;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* ----------------------------------------mybook---------------------------------------- */
+.titleInformationMyBook{
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    margin: 100px 0px 0px 100px;
+}
+
+.containerMyBook {
+    margin: 40px 100px 0px;
+    display: flex;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 10px;
+    height: 500px;
+}
+
+.listMyBook{
+    width: 200px;
+    height: 425px;
+}
+
+.imageMyBook {
+    Width:200px;
+    Height: 270px;
+    background-size: cover;
+    background-position: center center;
+}
+.titleMyBook{
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.authorMyBook{
+    font-size: 14px;
+    font-weight: lighter;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #929292;
+}
+
+.downloadMyBook{
+    margin: 25px 0px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #393939;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ----------------------------------------navbar---------------------------------------- */
+
+
+.containerNavbar {
+    width: 1440px; 
+    margin: 20px auto auto
+}
+
+.dropdownUser{
+    display: flex;
+}
+
+.dropdownCart{
+    background-size: cover; 
+    height: 40px; 
+    width: 41px; 
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.fotoProfile {
+    background-size: cover; 
+    height: 50px; 
+    width: 50px; 
+    border-radius: 100%; 
+    border: 2px solid #FFAF00 ;
+}
+
+.navbar {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    width: 1240px; 
+}
+
+.logoNavbar {
+    height: 70px;
+}
+
+.buttonLogin, .buttonRegister {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    Width: 100px;
+    Height:30px;
+    border: 2px solid #393939;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.buttonLogin{
+    color:#393939;
+    background-color: white;
+}
+
+.buttonRegister {
+    color:white;
+    background-color: #393939;
+}
+
+.containerFormLogin {
+    width:500px;
+    background-color:white ; 
+    height:516px; 
+    overflow:hidden ;
+    font-weight:bold; 
+    padding:0px 33px; 
+    position:relative; 
+    border-radius:10px;
+}
+
+.dropdown-toggle {
+    display: none;
+}
+/* ----------------------------------------transaction cart---------------------------------------- */
+.containerCartTransaction{
+    margin-top: 64px;
+    height: auto;
+    width: 1000px;
+}
+
+.myCart{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.reviewOrder{
+    font-size: 18px;
+    margin: 20px 0px 9px;
+    font-weight: 500;
+}
+
+.boxReviewOrder{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.boxReviewCart{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 660px;
+    padding: 25px 0px;
+    margin-bottom: 50px;
+}
+
+.boxCart{
+    display: flex;
+    justify-content: space-between;
+}
+
+.imageBoxCart{
+    width: 130px;
+    height: 176px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.informationBoxCart{
+    margin-left: 10px;
+    width: 450px;
+}
+
+.titleBoxCart{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.authiorBoxCart{
+    font-size: 14px;
+    color: #929292;
+}
+
+.priceBoxCart{
+    font-size: 14px;
+    color: #44B200;
+    font-weight: bold;
+}
+
+.deleteBoxCart{
+    height: 23px;
+    width: 20px;
+    background-size: cover;
+    margin-top: 5px;
+}
+
+.boxPriceCart{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    height: 150px;
+    width: 350px;
+    margin-left: 20px;
+    padding: 0px 5px;
+}
+
+.Qty, .totalPrice{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.totalPrice{
+    color: #44B200;
+}
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 50px;
+    background-color: #393939;
+    font-size: 18px;
+    color: white;
+    margin: 25px auto;
+    border-radius: 10px;
+}
+
+/* ----------------------------------------transaction list---------------------------------------- */
+.containerTransactionList{
+    margin: 100px 0px 55px 0px;
+    width: 1000px;
+}
+
+.titleIncomingTransaction{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.gridListBook{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: auto;
+}
+
+.transactionLishTitle{
+    display: flex; 
+    align-items: center; 
+    border-bottom: 1px solid black; 
+    height: 73px; 
+    padding: 0px 3px; 
+    font-weight: bold;
+}
+
+.transactionLish {
+    display: flex; 
+    align-items: center; 
+    border-bottom:1px solid black; 
+    height:auto; 
+    padding:5px 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
