@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const API = axios.create({
-  baseURL: 'http://localhost:5000/waysbook/api/v1/',
+  baseURL: 'https://waysbooks.fly.dev/waysbook/api/v1',
 });
  
 

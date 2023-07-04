@@ -34,7 +34,7 @@ function ModalRegister({show, onHide, hereLogin}) {
           const formData = new FormData();
           formData.set('email', formRegister.email);
           formData.set('password', formRegister.password);
-          formData.set('fullname', formRegister.fullName);
+          formData.set('fullName', formRegister.fullName);
           formData.set('gender', formRegister.gender);
           formData.set('phone', formRegister.phone);
           formData.set('address', formRegister.address);

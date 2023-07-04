@@ -70,7 +70,7 @@ return (
                             <div className='title' onClick={(e) => {navigate(`/DetailBook/${index}`)}}>{item.title}</div>
                             <div className='author'>By. {item.author}</div>
                             <div className='closing'>{item.description}</div>
-                            {item.priceDiscount !== 0 ? (
+                            {item.discount !== 0 ? (
                                 <div style={{display: 'flex', marginBottom: '10px'}}>
                                     <div className='priceListBookLine'>Rp. {item.price.toLocaleString()}</div>
                                     <div className='priceListBook'>Rp. {item.priceDiscount.toLocaleString()}</div>
@@ -95,7 +95,7 @@ return (
                         <div className='titleListBook' onClick={(e) => {navigate(`/DetailBook/${index}`)}}>{item.title}</div>
                         <div className='authorListBook'>{item.author}</div>
 
-                        {item.priceDiscount !== 0 ? (
+                        {item.discount !== 0 ? (
                             <div style={{display: 'flex', marginBottom: '10px'}}>
                                 <div className='priceListBookLine'>Rp. {item.price.toLocaleString()}</div>
                                 <div className='priceListBook'>Rp. {item.priceDiscount.toLocaleString()}</div>

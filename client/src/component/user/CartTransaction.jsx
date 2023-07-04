@@ -3,10 +3,12 @@ import FolderImage from '../assets/img/folderImg'
 import {UserContext} from "../../context/UserContext";
 import {React, useContext, useState , useEffect} from 'react';
 import {API} from '../../config/Api';
-// import {useQuery} from 'react-query';
+import { useMutation} from 'react-query';
+import { useNavigate} from 'react-router-dom';
 
 
 function CartTransaction () {
+    const navigate = useNavigate()
     const [state] = useContext(UserContext)
     const [isLoading, setIsLoading] = useState(true)
 
@@ -28,9 +30,6 @@ function CartTransaction () {
                 total: dataBookById.reduce((total, item) => total + item.book.price, 0),
               }
               );
-              console.log("harga", dataBookById);
-              console.log("response", dataBookById.length);
-              console.log("responsetotal", dataBookById.reduce((total, item) => total + item.book.price, 0));
               
               setIsLoading(false)
           } catch (error) {
@@ -50,6 +49,51 @@ function CartTransaction () {
           console.log(error);
         }
     }
+
+    const handleSubmit = useMutation(async () => {
+        try {
+          var tokenMitrans = localStorage.getItem("tokenMitrans");
+          const token = tokenMitrans;
+          console.log("data token", token);
+          window.snap.pay(token, {
+            onSuccess: async function (result) {
+              const createtransaction = await API.post(`/transaction/${state.user.id}`);
+              console.log("create transaction: ", createtransaction);
+              const deleteCarts = await API.delete(`/carts/${state.user.id}`);
+              console.log("delete carts : ", deleteCarts);
+              navigate("/profile");
+            },
+            onPending: async function (result) {
+              console.log(result);
+              navigate("/profile");
+            },
+            onError: async function (result) {
+              console.log(result);
+              navigate("/profile");
+            },
+            onClose: function () {
+              alert("you closed the popup without finishing the payment");
+            },
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      });
+
+      useEffect(() => {
+        const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
+        const myMidtransClientKey = process.env.REACT_APP_MIDTRANS_CLIENT_KEY;
+      
+        let scriptTag = document.createElement("script");
+        scriptTag.src = midtransScriptUrl;
+        scriptTag.setAttribute("data-client-key", myMidtransClientKey);
+      
+        document.body.appendChild(scriptTag);
+        return () => {
+          document.body.removeChild(scriptTag);
+        };
+      }, []);
+      
 
     return (
         <>
@@ -90,7 +134,7 @@ function CartTransaction () {
                             <div>Rp. {data.total.toLocaleString()}</div>
                         </div>
 
-                        <div className="pay">Pay</div>
+                        <div className="pay" onClick={()=>{handleSubmit.mutate()}}>Pay</div>
                     </div>
                 </div>
                     

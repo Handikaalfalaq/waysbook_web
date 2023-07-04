@@ -501,6 +501,7 @@
     align-items: center;
     border-radius: 10px;
     margin-top: 10px;
+    cursor: pointer;
 }
 
 /* ----------------------------------------mybook---------------------------------------- */
@@ -508,7 +509,7 @@
     font-size: 36px;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
-    margin: 100px 0px 0px 100px;
+    margin: 100px auto 10px;
 }
 
 .containerMyBook {
@@ -522,9 +523,14 @@
     height: 500px;
 }
 
+.listMyBooks{
+    display: flex;
+}
+
 .listMyBook{
     width: 200px;
     height: 425px;
+    margin-left: 10px;
 }
 
 .imageMyBook {
@@ -533,10 +539,17 @@
     background-size: cover;
     background-position: center center;
 }
+
 .titleMyBook{
     font-size: 24px;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
+    height: 110px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .authorMyBook{
@@ -544,10 +557,17 @@
     font-weight: lighter;
     font-family: Arial, Helvetica, sans-serif;
     color: #929292;
+    height: 45px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+
 .downloadMyBook{
-    margin: 25px 0px;
+    margin: 5px 0px;
     font-size: 18px;
     font-weight: bold;
     color: white;
@@ -557,9 +577,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
-
+.noDataMyBook{
+    margin: auto;
+    color:black;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
 
 /* ----------------------------------------navbar---------------------------------------- */
 
@@ -599,6 +625,7 @@
 
 .logoNavbar {
     height: 70px;
+    cursor: pointer;
 }
 
 .buttonLogin, .buttonRegister {
@@ -741,6 +768,7 @@
     color: white;
     margin: 25px auto;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* ----------------------------------------transaction list---------------------------------------- */
@@ -772,7 +800,7 @@
 
 .transactionLish {
     display: flex; 
-    align-items: center; 
+    flex-direction: column;
     border-bottom:1px solid black; 
     height:auto; 
     padding:5px 5px;

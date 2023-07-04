@@ -22,6 +22,7 @@ function InformasiDetailBook(){
             price:'',
             description:'',
             discount:0,
+            priceDiscount:'',
             sold:0,
             image:'',
             pdf:'',
@@ -33,6 +34,7 @@ function InformasiDetailBook(){
           try {
             const response = await API.get(`/books`);
             const dataBookById = response.data.data[number.id];
+            console.log("data", dataBookById)
             setData(
               {
                 idBook: dataBookById.id,
@@ -44,6 +46,7 @@ function InformasiDetailBook(){
                 price: dataBookById.price,
                 description:dataBookById.description,
                 discount: dataBookById.discount,
+                priceDiscount: dataBookById.priceDiscount,
                 sold: dataBookById.sold,
                 image: dataBookById.image,
                 pdf: dataBookById.pdf,
@@ -112,7 +115,16 @@ function InformasiDetailBook(){
                     <div className="isbnDetailBookTitle">ISBN</div>
                     <div className="isbnDetailBook">{data.isbn}</div>
                     <div className="priceDetailBookTitle">Price</div>
-                    <div className="priceDetailBook">Rp. {data.price.toLocaleString()}</div>
+
+                    {data.discount !== 0 ? (
+                        <div style={{display: 'flex', marginBottom: '10px'}}>
+                            <div className='priceListBookLine'>Rp. {data.price.toLocaleString()}</div>
+                            <div className='priceListBook'>Rp. {data.priceDiscount.toLocaleString()}</div>
+                        </div>
+                    ) : (
+                        <div className='priceListBook'>Rp. {data.price.toLocaleString()}</div>
+                    )}
+                    
                 </div>
             </div>
 
