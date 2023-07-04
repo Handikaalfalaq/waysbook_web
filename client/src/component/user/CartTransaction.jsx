@@ -59,7 +59,7 @@ function CartTransaction () {
           };
 
           const formData = new FormData();
-          formData.set("total", 30000);
+          formData.set("total", data.total);
           formData.set("status", "sukses");
 
           const createtransaction = await API.post(`/transaction/${state.user.id}`, formData, config);
