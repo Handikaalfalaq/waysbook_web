@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"waysbook/database"
 	mysql "waysbook/pkg/database"
 	"waysbook/routes"
@@ -28,6 +29,7 @@ func main() {
 
 	e.Static("/uploads", "./uploads")
 
+	PORT := os.Getenv("PORT")
 	fmt.Println("server running localhost:5000")
-	e.Logger.Fatal(e.Start("localhost:5000"))
+	e.Logger.Fatal(e.Start(":" + PORT))
 }

@@ -5,4 +5,5 @@ type Transaction struct {
 	IdUser           int               `json:"idUser" form:"idUser"`
 	User             User              `json:"user" form:"user" gorm:"foreignKey:IdUser"`
 	TransactionBooks []TransactionBook `json:"transactionBooks" form:"transactionBooks" gorm:"foreignKey:IdTransaction"`
+	Status           string            `json:"status" form:"status"`
 }

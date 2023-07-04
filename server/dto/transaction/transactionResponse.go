@@ -1,5 +1,5 @@
 package transactiondto
 
 type TransactionResponse struct {
-	Id     int `json:"id"`
+	Id int `json:"id"`
 }

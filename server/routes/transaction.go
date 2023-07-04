@@ -15,4 +15,5 @@ func TransactionRoutes(e *echo.Group) {
 	e.POST("/transaction/:idUser", h.CreateNewTransaction)
 	e.GET("/transaction/:idUser", h.GetTransactionByIdUser)
 	e.GET("/transactions", h.GetAllTransaction)
+	e.POST("/notification", h.Notification)
 }
