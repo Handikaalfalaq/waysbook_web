@@ -1,12 +1,16 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 	"strconv"
 	resultdto "waysbook/dto/result"
 	transactiondto "waysbook/dto/transaction"
 	"waysbook/models"
 	"waysbook/repositories"
+
+	"github.com/midtrans/midtrans-go"
+	"github.com/midtrans/midtrans-go/snap"
 
 	"github.com/go-playground/validator/v10"
 	"github.com/labstack/echo/v4"
@@ -24,10 +28,18 @@ func (h *handlerTransaction) CreateNewTransaction(c echo.Context) error {
 	userId := c.Param("idUser")
 	userIdstr, _ := strconv.Atoi(userId)
 
+	total, _ := strconv.Atoi(c.FormValue("total"))
+
 	transaction := models.Transaction{
 		IdUser: userIdstr,
 		Status: c.FormValue("status"),
+		Total:  total,
 	}
+
+	fmt.Println("transactionatas", transaction)
+	fmt.Println("transactionatas iduser", transaction.IdUser)
+	fmt.Println("transactionatas status", transaction.Status)
+	fmt.Println("transactionatas total", transaction.Total)
 
 	validation := validator.New()
 	err := validation.Struct(transaction)
@@ -38,7 +50,7 @@ func (h *handlerTransaction) CreateNewTransaction(c echo.Context) error {
 		})
 	}
 
-	id, err := h.TransactionRepository.CreateTransaction(transaction)
+	transactions, err := h.TransactionRepository.CreateTransaction(transaction)
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, resultdto.ErrorResult{
 			Code:    http.StatusBadRequest,
@@ -46,7 +58,41 @@ func (h *handlerTransaction) CreateNewTransaction(c echo.Context) error {
 		})
 	}
 
-	return c.JSON(http.StatusOK, resultdto.SuccessResult{Code: http.StatusOK, Data: convertResponseTransaction(id)})
+	fmt.Println("transactionbawah", transactions)
+	fmt.Println("transactionbawah", transactions.User)
+
+	id := strconv.Itoa(transactions.Id)
+
+	var s = snap.Client{}
+	s.New("SB-Mid-server-Lh7pYQxeOdq0rBg4a-7uhX5Q", midtrans.Sandbox)
+	// s.New("SB-Mid-server-Lh7pYQxeOdq0rBg4a-7uhX5Q", midtrans.Sandbox)
+
+	// 2. Initiate Snap request param
+	req := &snap.Request{
+		TransactionDetails: midtrans.TransactionDetails{
+			OrderID:  id,
+			GrossAmt: int64(transactions.Total),
+		},
+		CreditCard: &snap.CreditCardDetails{
+			Secure: true,
+		},
+		CustomerDetail: &midtrans.CustomerDetails{
+			FName: transactions.User.FullName,
+			Email: transactions.User.Email,
+		},
+	}
+
+	fmt.Println("req", req)
+	fmt.Println("s aja", s)
+
+	// 3. Execute request create Snap transaction to Midtrans Snap API
+	snapResp, _ := s.CreateTransaction(req)
+
+	fmt.Println("ini token", snapResp)
+
+	return c.JSON(http.StatusOK, resultdto.SuccessResult{Code: http.StatusOK, Data: snapResp})
+
+	// return c.JSON(http.StatusOK, resultdto.SuccessResult{Code: http.StatusOK, Data: convertResponseTransaction(id)})
 }
 
 // GetTransactionByIdUser

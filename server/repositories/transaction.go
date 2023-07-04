@@ -7,7 +7,7 @@ import (
 )
 
 type TransactionRepository interface {
-	CreateTransaction(transaction models.Transaction) (int, error)
+	CreateTransaction(transaction models.Transaction) (models.Transaction, error)
 	FindTransactionsByIdUser(userIdstr int) ([]models.Transaction, error)
 	FindAllTransactions() ([]models.Transaction, error)
 	UpdateTransaction(status string, orderId int) (models.Transaction, error)
@@ -18,17 +18,17 @@ func RepositoryTransaction(db *gorm.DB) *repository {
 	return &repository{db}
 }
 
-func (r *repository) CreateTransaction(transaction models.Transaction) (int, error) {
-	err := r.db.Create(&transaction).Error
+func (r *repository) CreateTransaction(transaction models.Transaction) (models.Transaction, error) {
+	err := r.db.Preload("User").Create(&transaction).Error
 	if err != nil {
-		return 0, err
+		return transaction, err
 	}
 
 	var carts []models.Cart
-	err = r.db.Where("id_user = ?", transaction.IdUser).Find(&carts).Error
+	err = r.db.Preload("User").Where("id_user = ?", transaction.IdUser).Find(&carts).Error
 
 	if err != nil {
-		return 0, err
+		return transaction, err
 	}
 
 	transactionBooks := make([]models.TransactionBook, len(carts))
@@ -41,7 +41,7 @@ func (r *repository) CreateTransaction(transaction models.Transaction) (int, err
 	}
 	err = r.db.Create(&transactionBooks).Error
 
-	return transaction.Id, err
+	return transaction, err
 }
 
 func (r *repository) FindTransactionsByIdUser(userIdstr int) ([]models.Transaction, error) {
