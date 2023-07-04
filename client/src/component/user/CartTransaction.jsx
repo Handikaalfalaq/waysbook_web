@@ -52,13 +52,28 @@ function CartTransaction () {
 
     const handleSubmit = useMutation(async () => {
         try {
-          var tokenMitrans = localStorage.getItem("tokenMitrans");
-          const token = tokenMitrans;
-          console.log("data token", token);
-          window.snap.pay(token, {
+          const config = {
+            headers: {
+              'Content-type': 'multipart/form-data',
+            },
+          };
+
+          const formData = new FormData();
+          formData.set("total", data.total);
+          formData.set("status", "sukses");
+
+          const createtransaction = await API.post(`/transaction/${state.user.id}`, formData, config);
+          console.log("create transaction: ", createtransaction);
+
+          var tokenMitrans = createtransaction.data.data.token;
+          // localStorage.setItem("tokenMitrans", tokenMitrans);
+
+          // var tokenMitrans = localStorage.getItem("tokenMitrans");
+          // const token = tokenMitrans;
+          // console.log("data token", token);
+          window.snap.pay(tokenMitrans, {
             onSuccess: async function (result) {
-              const createtransaction = await API.post(`/transaction/${state.user.id}`);
-              console.log("create transaction: ", createtransaction);
+
               const deleteCarts = await API.delete(`/carts/${state.user.id}`);
               console.log("delete carts : ", deleteCarts);
               navigate("/profile");
