@@ -15,7 +15,9 @@ function Home() {
     const {data: transactionBook}= useQuery("transactionBookCache", async () => {
     const responseTransaction = await API.get(`/transaction/${state.user.id}`);
     const dataBookById = responseTransaction.data.data;
-    console.log("transactionBook", transactionBook, dataBookById)
+    console.log("transactionBook", transactionBook)
+    console.log("transactionBook1", dataBookById)
+    console.log("transactionBook2", dataBookById[0].transactionBooks[0].book.id)
     })
 
     const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
