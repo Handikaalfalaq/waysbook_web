@@ -79,6 +79,8 @@ return (
                             <div className='title' onClick={(e) => {navigate(`/DetailBook/${index}`)}}>{item.title}</div>
                             <div className='author'>By. {item.author}</div>
                             <div className='closing'>{item.description}</div>
+                            <div className='closing'>{item.id}</div>
+
                             {item.discount !== 0 ? (
                                 <div style={{display: 'flex', marginBottom: '10px'}}>
                                     <div className='priceListBookLine'>Rp. {item.price.toLocaleString()}</div>
@@ -87,6 +89,7 @@ return (
                             ) : (
                                 <div className='priceListBook'>Rp. {item.price.toLocaleString()}</div>
                             )}
+                            
 
                             <button className='buttonCart' onClick={() => handleSubmit.mutate(item.id)}>Add to Cart</button>
 
