@@ -28,7 +28,7 @@ function Home() {
         return dataBookById;
       });
       
-      
+      console.log("bookIds:", transactionBook);
 
     const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
     const response = await API.get("/books")
