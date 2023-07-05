@@ -100,11 +100,9 @@ return (
                                 <div className='priceListBook'>Rp. {item.price.toLocaleString()}</div>
                             )}
                             
-                            {book.book.id !== item.id ? (
+
                                 <button className='buttonCart' onClick={() => handleSubmit.mutate(item.id)}>Add to Cart</button>
-                            ) : (
-                                <button className='buttonCart' >download</button>
-                            )}
+                                
 
                         </div>
                     </div>
