@@ -90,7 +90,7 @@ function Home() {
                 {transactionBook.map((transaction, index) => {
                   return (
                     <div key={index}>
-                      {transaction.transactionBooks.map((book, bookIndex) => {
+                      {transaction.transactionBooks.filter((book, bookIndex) => {
                         if (book.book.id === item.id) {
                           return (
                             <div className='downloadMyBook' key={bookIndex}>
