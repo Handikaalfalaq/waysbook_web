@@ -20,12 +20,14 @@ function Home() {
         console.log("transactionBook2", dataBookById[0].transactionBooks[0].book.id);
       
         // Mencetak semua book.id
-        dataBookById.forEach((transaction) => {
-          transaction.transactionBooks.forEach((book) => {
-            console.log("book.id:", book.book.id);
-          });
+        const bookIds = dataBookById.flatMap((transaction) => {
+          return transaction.transactionBooks.map((book) => book.book.id);
         });
+        console.log("bookIds:", bookIds);
+      
+        return dataBookById;
       });
+      
       
 
     const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
@@ -98,8 +100,11 @@ return (
                                 <div className='priceListBook'>Rp. {item.price.toLocaleString()}</div>
                             )}
                             
-
-                            <button className='buttonCart' onClick={() => handleSubmit.mutate(item.id)}>Add to Cart</button>
+                            {book.book.id !== item.id ? (
+                                <button className='buttonCart' onClick={() => handleSubmit.mutate(item.id)}>Add to Cart</button>
+                            ) : (
+                                <button className='buttonCart' >download</button>
+                            )}
 
                         </div>
                     </div>
