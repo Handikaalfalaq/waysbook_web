@@ -13,7 +13,6 @@ function MyBook() {
       try {
         const response = await API.get(`/transaction/${state.user.id}`);
         const dataBookById = response.data.data;
-        console.log("data", dataBookById)
         setDataBook(dataBookById);
         setIsLoading(false);
       } catch (error) {

@@ -11,48 +11,55 @@ import Swal from 'sweetalert2'
 function Home() {
     const navigate = useNavigate()
     const [state] = useContext(UserContext)
-    const {data: dataAllBook, isLoading}= useQuery("dataAllTripCache", async () => {
-        const response = await API.get("/books")
-        return response.data.data
-        })
+    
+    const {data: transactionBook}= useQuery("transactionBookCache", async () => {
+    const responseTransaction = await API.get(`/transaction/${state.user.id}`);
+    const dataBookById = responseTransaction.data.data;
+    console.log("transactionBook", transactionBook, dataBookById)
+    })
 
-        let dataSorted = [];
-        let topTwoData = [];
+    const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
+    const response = await API.get("/books")
+    return response.data.data
+    })
 
-        if (!isLoading) {
-        dataSorted = [...dataAllBook].sort((a, b) => b.sold - a.sold);
-        topTwoData = dataSorted.slice(0, 2);
-        }
+    let dataSorted = [];
+    let topTwoData = [];
 
-        const handleSubmit = useMutation(async (id) => {
-            try {
-                // e.preventDefault();
-                if ( !state.isLogin ) {
-                    return Swal.fire({
-                        icon: 'warning',
-                        title: 'Silahkan login terlebih dahulu',
-                      })
-                }
+    if (!isLoadingAllBook) {
+    dataSorted = [...dataAllBook].sort((a, b) => b.sold - a.sold);
+    topTwoData = dataSorted.slice(0, 2);
+    }
 
-                const config = {
-                    headers: {
-                      'Content-type': 'multipart/form-data',
-                    },
-                  };
+    const handleSubmit = useMutation(async (id) => {
+        try {
+            // e.preventDefault();
+            if ( !state.isLogin ) {
+                return Swal.fire({
+                    icon: 'warning',
+                    title: 'Silahkan login terlebih dahulu',
+                    })
+            }
 
-                const formData = new FormData();
-                formData.set('idBook', id);
-                formData.set('idUser', state.user.id);
-                const response = await API.post('/cart', formData, config);
-                console.log("add book success : ", response);
-            } catch (error) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Buku sudah ada di keranjang',
-                  })
-                console.log("add book failed : ", error)
-            } 
-        });
+            const config = {
+                headers: {
+                    'Content-type': 'multipart/form-data',
+                },
+                };
+
+            const formData = new FormData();
+            formData.set('idBook', id);
+            formData.set('idUser', state.user.id);
+            const response = await API.post('/cart', formData, config);
+            console.log("add book success : ", response);
+        } catch (error) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Buku sudah ada di keranjang',
+                })
+            console.log("add book failed : ", error)
+        } 
+    });
 
 return (
     <Container className='containerHome'>
@@ -78,7 +85,9 @@ return (
                             ) : (
                                 <div className='priceListBook'>Rp. {item.price.toLocaleString()}</div>
                             )}
+
                             <button className='buttonCart' onClick={() => handleSubmit.mutate(item.id)}>Add to Cart</button>
+
                         </div>
                     </div>
                 )
