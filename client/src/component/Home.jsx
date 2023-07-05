@@ -93,15 +93,15 @@ function Home() {
                       {transaction.transactionBooks.map((book, bookIndex) => {
                         if (book.book.id === item.id) {
                           return (
-                            <button className='buttonCart' key={bookIndex} onClick={() => handleSubmit.mutate(item.id)}>
-                              Add to Cart
-                            </button>
-                          );
-                        } else {
-                          return (
                             <div className='downloadMyBook' key={bookIndex}>
                               Download
                             </div>
+                          );
+                        } else {
+                          return (
+                            <button className='buttonCart' key={bookIndex} onClick={() => handleSubmit.mutate(item.id)}>
+                              Add to Cart
+                            </button>
                           );
                         }
                       })}
