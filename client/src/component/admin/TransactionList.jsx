@@ -5,7 +5,6 @@ import { UserContext } from '../../context/UserContext';
 
 function TransactionList() {
     const [state] = useContext(UserContext);
-    console.log("ini state", state);
     const [isLoading, setIsLoading] = useState(true);
     const [dataTransaction, setDataTransaction] = useState([]);
 
@@ -14,7 +13,6 @@ function TransactionList() {
         try {
             const response = await API.get(`/transactions`);
             const dataTransactionById = response.data.data;
-            console.log("response", dataTransactionById);
             setDataTransaction(dataTransactionById);
             setIsLoading(false);
         } catch (error) {
