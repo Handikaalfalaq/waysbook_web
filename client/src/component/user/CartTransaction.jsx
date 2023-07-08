@@ -22,7 +22,7 @@ function CartTransaction () {
         const fetchData = async () => {
           try {
             const response = await API.get(`/carts/${state.user.id}`);
-            const dataBookById = response.data.data;
+            
             setData(
               {
                 idCart: dataBookById,
@@ -44,7 +44,7 @@ function CartTransaction () {
         try {
             
           const response = await API.delete(`/cart/${index}`);
-          console.log(response.data);
+          
         } catch (error) {
           console.log(error);
         }
@@ -63,7 +63,7 @@ function CartTransaction () {
           formData.set("status", "sukses");
 
           const createtransaction = await API.post(`/transaction/${state.user.id}`, formData, config);
-          console.log("create transaction: ", createtransaction);
+          
 
           var tokenMitrans = createtransaction.data.data.token;
           // localStorage.setItem("tokenMitrans", tokenMitrans);
@@ -75,7 +75,6 @@ function CartTransaction () {
             onSuccess: async function (result) {
 
               const deleteCarts = await API.delete(`/carts/${state.user.id}`);
-              console.log("delete carts : ", deleteCarts);
               navigate("/profile");
             },
             onPending: async function (result) {
