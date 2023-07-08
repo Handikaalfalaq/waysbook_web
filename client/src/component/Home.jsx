@@ -57,7 +57,6 @@ function Home() {
             formData.set('idBook', id);
             formData.set('idUser', state.user.id);
             const response = await API.post('/cart', formData, config);
-            console.log("add book success : ", response);
         } catch (error) {
             Swal.fire({
                 icon: 'error',
