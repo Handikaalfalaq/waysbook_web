@@ -13,11 +13,11 @@ import IconLogout from './iconLogout.png'
 import IconUser from './iconUser.png'
 import LogoBook from './logoBook.png'
 import Phone from './phone.png'
-import ProfilDefault from './profilDefault.jpeg'
+// import ProfilDefault from './profilDefault.jpeg'
 import SebuahSeni from './sebuahSeni.png'
 import Trash from './trash.png'
 import Triangle from './triangle.png'
-import UserProfile from './userProfile.jpg'
+import UserProfile from './userProfile.jpeg'
 
 const FolderImage = {
     Address,
@@ -35,7 +35,7 @@ const FolderImage = {
     IconUser,
     LogoBook,
     Phone,
-    ProfilDefault,
+    // ProfilDefault,
     SebuahSeni,
     Trash,
     Triangle,
