@@ -8,7 +8,9 @@ import {Button, Modal} from 'react-bootstrap';
 function ListAllBook(){
 	const navigate = useNavigate()
 	const [confirDelete, setConfirdelete] = useState(false)
+
 	const [idDelete, setIdDelete] = useState()
+	
 	const {data: dataAllBook, refetch}= useQuery("dataAllBookCache", async () => {
         const response = await API.get("/books")
 		console.log("data", dataAllBook)

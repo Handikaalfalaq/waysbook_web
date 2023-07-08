@@ -27,8 +27,9 @@ function Home() {
       
         return dataBookById;
       });
+    
+      console.log("bookIds:", transactionBook);
       
-      console.log("bookIdstransactionBook:", transactionBook);
 
     const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
     const response = await API.get("/books")
@@ -89,7 +90,6 @@ return (
                             <div className='title' onClick={(e) => {navigate(`/DetailBook/${index}`)}}>{item.title}</div>
                             <div className='author'>By. {item.author}</div>
                             <div className='closing'>{item.description}</div>
-                            <div className='closing'>{item.id}</div>
 
                             {item.discount !== 0 ? (
                                 <div style={{display: 'flex', marginBottom: '10px'}}>
