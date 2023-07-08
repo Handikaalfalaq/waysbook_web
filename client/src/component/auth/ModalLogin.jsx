@@ -39,8 +39,6 @@ function ModalLogin({show, onHide, hereRegister}){
 
       const response = await API.post('/login', formLogin, config);
 
-      console.log("login success : ", response);
-
       // Send data to useContext
       dispatch({
         type: 'LOGIN_SUCCESS',
