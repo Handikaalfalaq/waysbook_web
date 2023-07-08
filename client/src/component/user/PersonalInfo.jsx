@@ -30,7 +30,6 @@ function PersonalInfo() {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            console.log("id user", state.user.id)
             const response = await API.get(`/user/${state.user.id}`);
             const dataUserById = response.data.data;
 
