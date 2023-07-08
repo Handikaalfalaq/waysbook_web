@@ -20,7 +20,6 @@ function Home() {
         const bookIds = dataBookById.flatMap((transaction) => {
           return transaction.transactionBooks.map((book) => book.book.id);
         });
-        console.log("bookIds:", bookIds);
       
         return dataBookById;
       });
