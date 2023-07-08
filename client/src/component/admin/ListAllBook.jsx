@@ -13,7 +13,6 @@ function ListAllBook(){
 	
 	const {data: dataAllBook, refetch}= useQuery("dataAllBookCache", async () => {
         const response = await API.get("/books")
-		console.log("data", dataAllBook)
         return response.data.data
         })
 
