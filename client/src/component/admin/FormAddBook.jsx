@@ -31,8 +31,6 @@ function FormAddBook() {
               e.target.type === 'file' ? e.target.files : e.target.value,
           })
         };
-
-        console.log("ini data book", formBook);
   
       const handleSubmit = useMutation(async (e) => {
         try {
