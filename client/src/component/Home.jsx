@@ -15,9 +15,6 @@ function Home() {
     const { data: transactionBook } = useQuery("transactionBookCache", async () => {
         const responseTransaction = await API.get(`/transaction/${state.user.id}`);
         const dataBookById = responseTransaction.data.data;
-        console.log("transactionBook", transactionBook);
-        console.log("transactionBook1", dataBookById);
-        console.log("transactionBook2", dataBookById[0].transactionBooks[0].book.id);
       
         // Mencetak semua book.id
         const bookIds = dataBookById.flatMap((transaction) => {
@@ -27,9 +24,6 @@ function Home() {
       
         return dataBookById;
       });
-    
-      console.log("bookIds:", transactionBook);
-      
 
     const {data: dataAllBook, isLoading: isLoadingAllBook}= useQuery("dataAllTripCache", async () => {
     const response = await API.get("/books")
