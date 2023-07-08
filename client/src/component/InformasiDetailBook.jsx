@@ -52,7 +52,7 @@ function InformasiDetailBook(){
               }
             );
           } catch (error) {
-            console.log(error);
+            
           }
         };
     
@@ -81,7 +81,6 @@ function InformasiDetailBook(){
             formData.set('idUser', state.user.id);
             
             const response = await API.post('/cart', formData, config);
-            console.log("add book success : ", response);
             
             Swal.fire({
               position: 'center',
