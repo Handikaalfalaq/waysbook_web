@@ -32,7 +32,6 @@ function Navbar() {
   }
 
     const logout = () => {
-        console.log("ini state", state)
         dispatch({
             type: "LOGOUT"
         })
