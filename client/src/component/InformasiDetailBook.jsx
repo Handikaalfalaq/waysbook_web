@@ -34,7 +34,6 @@ function InformasiDetailBook(){
           try {
             const response = await API.get(`/books`);
             const dataBookById = response.data.data[number.id];
-            console.log("data", dataBookById)
             setData(
               {
                 idBook: dataBookById.id,
